@@ -30,7 +30,7 @@ Alternative automatic documentation with ReDoc (from the OpenAPI backend): http:
 
 PGAdmin, PostgreSQL web administration: http://localhost:5050
 
-Flower, administration of Celery tasks: http://localhost:5555
+Flower, administration of Celery tasks: http://localhost:5555 (Currently disabled)
 
 Traefik UI, to see how the routes are being handled by the proxy: http://localhost:8090
 
