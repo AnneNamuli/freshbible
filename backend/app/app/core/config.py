@@ -81,6 +81,9 @@ class Settings(BaseSettings):
     FIRST_SUPERUSER: EmailStr
     FIRST_SUPERUSER_PASSWORD: str
     USERS_OPEN_REGISTRATION: bool = False
+    FIRST_NAME: str
+    LAST_NAME: str
+    PHONE_NUMBER: str
 
     class Config:
         case_sensitive = True
