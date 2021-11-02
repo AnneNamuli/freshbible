@@ -4,6 +4,7 @@ from fastapi import APIRouter, Body, Depends, HTTPException
 from fastapi.encoders import jsonable_encoder
 from pydantic.networks import EmailStr
 from sqlalchemy.orm import Session
+from datetime import date
 
 from app import crud, models, schemas
 from app.api import deps
@@ -93,22 +94,24 @@ def create_user_open(
     password: str = Body(...),
     email: EmailStr = Body(...),
     full_name: str = Body(None),
+    first_name: str = Body(...),
+    last_name: str = Body(...),
+    phone_number: str = Body(...),
+    date_of_birth: date = Body(...)
+
+
 ) -> Any:
     """
     Create new user without the need to be logged in.
     """
-    if not settings.USERS_OPEN_REGISTRATION:
-        raise HTTPException(
-            status_code=403,
-            detail="Open user registration is forbidden on this server",
-        )
     user = crud.user.get_by_email(db, email=email)
     if user:
         raise HTTPException(
             status_code=400,
             detail="The user with this username already exists in the system",
         )
-    user_in = schemas.UserCreate(password=password, email=email, full_name=full_name)
+    user_in = schemas.UserCreate(
+        password=password, email=email, first_name=first_name, last_name=last_name, full_name=full_name, phone_number=phone_number, date_of_birth=date_of_birth)
     user = crud.user.create(db, obj_in=user_in)
     return user
 

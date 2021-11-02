@@ -14,7 +14,7 @@ class UserBase(BaseModel):
     is_superuser: bool = False
     created_at: Optional[datetime] = None
     modified_at: Optional[str] = None
-    date_of_birth: Optional[str] = None
+    date_of_birth: Optional[date] = None
     full_name: Optional[str] = None
 
 
