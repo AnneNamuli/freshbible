@@ -13,7 +13,7 @@ class UserBase(BaseModel):
     is_active: Optional[bool] = True
     is_superuser: bool = False
     created_at: Optional[datetime] = None
-    modified_at: Optional[str] = None
+    modified_at: Optional[datetime] = None
     date_of_birth: Optional[date] = None
     full_name: Optional[str] = None
 

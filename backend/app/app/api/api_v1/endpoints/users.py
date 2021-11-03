@@ -135,7 +135,7 @@ def read_user_by_id(
     return user
 
 
-@router.put("/{user_id}", response_model=schemas.User)
+@router.patch("/{user_id}", response_model=schemas.User)
 def update_user(
     *,
     db: Session = Depends(deps.get_db),
