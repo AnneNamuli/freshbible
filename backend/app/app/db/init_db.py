@@ -23,6 +23,6 @@ def init_db(db: Session) -> None:
             first_name=settings.FIRST_NAME,
             last_name=settings.LAST_NAME,
             phone_number=settings.PHONE_NUMBER,
-            is_superuser=True
+            is_superuser=True,
         )
         user = crud.user.create(db, obj_in=user_in)  # noqa: F841
