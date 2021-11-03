@@ -31,10 +31,10 @@ class UserCreate(UserBase):
 # Properties to receive via API on update
 class UserUpdate(UserBase):
     password: Optional[str] = None
-    first_name:  Optional[str] = None
-    last_name:  Optional[str] = None
-    phone_number:  Optional[str] = None
-    date_of_birth:  Optional[str] = None
+    first_name: Optional[str] = None
+    last_name: Optional[str] = None
+    phone_number: Optional[str] = None
+    date_of_birth: Optional[str] = None
 
 
 class UserInDBBase(UserBase):

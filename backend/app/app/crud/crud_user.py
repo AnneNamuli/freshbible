@@ -22,7 +22,7 @@ class CRUDUser(CRUDBase[User, UserCreate, UserUpdate]):
             last_name=obj_in.last_name,
             date_of_birth=obj_in.date_of_birth,
             phone_number=obj_in.phone_number,
-            created_at=obj_in.created_at
+            created_at=obj_in.created_at,
         )
         db.add(db_obj)
         db.commit()
