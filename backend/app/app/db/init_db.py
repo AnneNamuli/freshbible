@@ -20,6 +20,10 @@ def init_db(db: Session) -> None:
         user_in = schemas.UserCreate(
             email=settings.FIRST_SUPERUSER,
             password=settings.FIRST_SUPERUSER_PASSWORD,
-            is_superuser=True,
+            first_name=settings.FIRST_NAME,
+            last_name=settings.LAST_NAME,
+            phone_number=settings.PHONE_NUMBER,
+            is_superuser=True
         )
+        print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', user_in)
         user = crud.user.create(db, obj_in=user_in)  # noqa: F841
