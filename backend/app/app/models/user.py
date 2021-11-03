@@ -2,7 +2,6 @@ from typing import TYPE_CHECKING
 
 from sqlalchemy import Boolean, Column, Integer, String
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql.expression import false
 from sqlalchemy.sql.sqltypes import Date, DateTime
 from datetime import datetime
 from app.db.base_class import Base
