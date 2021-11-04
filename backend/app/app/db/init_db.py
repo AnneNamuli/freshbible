@@ -25,4 +25,5 @@ def init_db(db: Session) -> None:
             phone_number=settings.PHONE_NUMBER,
             is_superuser=True,
         )
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", user_in)
         user = crud.user.create(db, obj_in=user_in)  # noqa: F841
