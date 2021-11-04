@@ -7,6 +7,7 @@ from datetime import datetime
 from app.db.base_class import Base
 
 if TYPE_CHECKING:
+    default = datetime.datetime.now, onupdate = datetime.datetime.now
     from .item import Item  # noqa: F401
 
 
@@ -22,5 +23,6 @@ class User(Base):
     is_active = Column(Boolean(), default=True)
     is_superuser = Column(Boolean(), default=False)
     created_at = Column(DateTime, default=datetime.utcnow())
-    modified_at = Column(DateTime)
+    modified_at = Column(DateTime, default=datetime.utcnow(),
+                         onupdate=datetime.utcnow())
     items = relationship("Item", back_populates="owner")
