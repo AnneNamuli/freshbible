@@ -7,11 +7,13 @@ from pydantic import BaseModel
 
 class BibleChapterBase(BaseModel):
     title: Optional[str] = None
+    book_id: Optional[int] = None
 
 
 # Properties to receive via API on creation
 class BibleChapterCreate(BibleChapterBase):
     title: str
+    book_id: int
 
 
 # Properties to receive via API on update
@@ -21,7 +23,6 @@ class BibleChapterUpdate(BibleChapterBase):
 
 class BibleChapterInDBBase(BibleChapterBase):
     id: Optional[int] = None
-    book_id: Optional[int] = None
 
     class Config:
         orm_mode = True
