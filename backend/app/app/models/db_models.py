@@ -1,14 +1,8 @@
-from typing import TYPE_CHECKING
-
 from sqlalchemy import Boolean, Column, Integer, String
-from sqlalchemy.orm import relationship
+from sqlalchemy.sql.schema import ForeignKey
 from sqlalchemy.sql.sqltypes import Date, DateTime
 from datetime import datetime
 from app.db.base_class import Base
-
-if TYPE_CHECKING:
-    default = datetime.datetime.now, onupdate = datetime.datetime.now
-    from .item import Item  # noqa: F401
 
 
 class User(Base):
@@ -25,4 +19,15 @@ class User(Base):
     created_at = Column(DateTime, default=datetime.utcnow())
     modified_at = Column(DateTime, default=datetime.utcnow(),
                          onupdate=datetime.utcnow())
-    items = relationship("Item", back_populates="owner")
+
+
+class Bible_Book(Base):
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, unique=True)
+    slug = Column(String, unique=True)
+
+
+class Bible_Chapter(Base):
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, unique=True)
+    book_id = Column(Integer, ForeignKey(Bible_Book.id))
