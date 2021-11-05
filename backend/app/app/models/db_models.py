@@ -29,5 +29,5 @@ class Bible_Book(Base):
 
 class Bible_Chapter(Base):
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, unique=True)
+    title = Column(String)
     book_id = Column(Integer, ForeignKey(Bible_Book.id))
