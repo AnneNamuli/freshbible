@@ -1,27 +1,21 @@
 from typing import Optional
-
-from sqlalchemy.sql.sqltypes import Text
-
 from pydantic import BaseModel
 
+
 # Shared properties
-
-
 class BibleVerseBase(BaseModel):
-    title: Optional[str] = None
     book_id: Optional[int] = None
     chapter_id: Optional[int] = None
     verse_number: Optional[int] = None
-    text: Optional[Text] = None
+    text: Optional[str] = None
 
 
 # Properties to receive via API on creation
 class BibleVerseCreate(BibleVerseBase):
-    title: str
     book_id: int
     chapter_id: int
     verse_number: int
-    text: Text
+    text: str
 
 
 # Properties to receive via API on update
