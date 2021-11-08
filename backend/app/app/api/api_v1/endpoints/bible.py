@@ -23,6 +23,19 @@ def read_bible_books(
     return book
 
 
+@router.get("/{id}", response_model=schemas.BibleBook)
+def read_bible_by_id(
+    id: int,
+    current_user: models.User = Depends(deps.get_current_active_user),
+    db: Session = Depends(deps.get_db),
+) -> Any:
+    """
+    Read bible book by id.
+    """
+    book = crud.bible_book.get(db, id=id)
+    return book
+
+
 @router.post("/", response_model=schemas.BibleBook)
 def create_bible_book(
     *,
@@ -41,59 +54,3 @@ def create_bible_book(
         )
     book = crud.bible_book.create(db, obj_in=book_in)
     return book
-
-
-@router.post("/chapter", response_model=schemas.BibleChapter)
-def create_bible_chapter(
-    *,
-    db: Session = Depends(deps.get_db),
-    book_in: schemas.BibleChapterCreate,
-    current_user: models.User = Depends(deps.get_current_active_superuser),
-) -> Any:
-    """
-    Create new chapter of the bible.
-    """
-    book = crud.bible_chapter.create(db, obj_in=book_in)
-    return book
-
-
-@router.get("/chapter/", response_model=List[schemas.BibleChapter])
-def read_bible_chapters(
-    db: Session = Depends(deps.get_db),
-    skip: int = 0,
-    limit: int = 100,
-    current_user: models.User = Depends(deps.get_current_active_superuser),
-) -> Any:
-    """
-    Retrieve chapters of the bible.
-    """
-    chapter = crud.chapter.get_multi(db, skip=skip, limit=limit)
-    return chapter
-
-
-@router.post("/chapter/verse", response_model=schemas.BibleVerse)
-def create_bible_verse(
-    *,
-    db: Session = Depends(deps.get_db),
-    verse_in: schemas.BibleVerseCreate,
-    current_user: models.User = Depends(deps.get_current_active_superuser),
-) -> Any:
-    """
-    Create new verse of the bible.
-    """
-    verse = crud.verse.create(db, obj_in=verse_in)
-    return verse
-
-
-@router.get("/chapter/verse", response_model=List[schemas.BibleVerse])
-def read_bible_verses(
-    db: Session = Depends(deps.get_db),
-    skip: int = 0,
-    limit: int = 100,
-    current_user: models.User = Depends(deps.get_current_active_superuser),
-) -> Any:
-    """
-    Retrieve all verses of the bible.
-    """
-    chapter = crud.verse.get_multi(db, skip=skip, limit=limit)
-    return chapter
