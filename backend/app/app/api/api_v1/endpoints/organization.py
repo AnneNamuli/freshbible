@@ -30,7 +30,7 @@ def read_organization_by_id(
     db: Session = Depends(deps.get_db),
 ) -> Any:
     """
-    Read organization book by id.
+    Read organization by id.
     """
     organization = crud.organization.get(db, id=id)
     return organization
