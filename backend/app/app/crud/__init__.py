@@ -1,5 +1,7 @@
-from .crud_item import item
-from .crud_user import user
+from .user import user
+from .bible import bible_book
+from .bible_chapter import chapter
+from .bible_verse import verse
 
 # For a new basic set of CRUD operations you could just do
 
