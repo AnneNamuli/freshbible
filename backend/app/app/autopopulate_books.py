@@ -1,4 +1,5 @@
 from docx import Document
+import re
 
 doc = Document("Fresh Word (Full Version).docx")
 paragraphs = (doc.paragraphs)
@@ -8,6 +9,8 @@ books = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy', 'Joshua', '
 
 
 # cleaning for ezekial -- has number that are not chapter - Ezekiel removed
+chapters = []
+
 
 def get_chapters_dict():
     chapter_dict = {}
@@ -17,6 +20,7 @@ def get_chapters_dict():
     for book_name in books:
         for idx, paragraph in enumerate(paragraphs):
             if paragraph.text.startswith(book_name):
+                chapters.append(paragraph.text)
                 new_chapter = paragraph.text
                 new_chapter_index = idx  # save pos
 
@@ -50,3 +54,40 @@ def get_chapter_text(start_index, stop_index):
 
 
 result = get_chapters_dict()
+
+k = {}
+
+for chapter in chapters:
+    chapter_str = result[chapter]
+
+    chapter_num = [int(word)
+                   for word in chapter_str.split() if word.isdigit()]
+
+    if chapter_num:
+        verse_range = range(1, chapter_num[-1]+1)
+
+        for i in range(len(verse_range)):
+
+            if i < len(verse_range)-1:
+                try:
+                    verse = chapter_str[chapter_str.index(
+                        str(verse_range[i])):chapter_str.index(str(verse_range[i+1]))].replace('\u200b', '')
+
+                    verse_num = [int(word)
+                                 for word in verse.split() if word.isdigit()]
+                    if len(verse_num) == 1:
+                        print(chapter, '>>>>>>>', verse_num, '::::::::', verse)
+                except ValueError:
+                    pass
+
+            else:
+
+                try:
+                    verse = chapter_str[chapter_str.index(
+                        str(verse_range[-1])):].replace('\u200b', '')
+                    verse_num = [int(word)
+                                 for word in verse.split() if word.isdigit()]
+                    if len(verse_num) == 1:
+                        print(chapter, '======', verse_num, '::::::::', verse)
+                except ValueError:
+                    pass

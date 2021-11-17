@@ -30,15 +30,15 @@ class Bible_Book(Base):
 
 class Bible_Chapter(Base):
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String)
+    title = Column(String, index=True)
     book_id = Column(Integer, ForeignKey(Bible_Book.id))
     created_at = Column(DateTime, default=datetime.utcnow())
 
 
 class Bible_Verse(Base):
     id = Column(Integer, primary_key=True, index=True)
-    book_id = Column(Integer, ForeignKey(Bible_Book.id), index=True)
     chapter_id = Column(Integer, ForeignKey(Bible_Chapter.id), index=True)
+    chapter = Column(String, ForeignKey(Bible_Chapter.title), index=True)
     verse_number = Column(Integer, index=True)
     text = Column(Text)
     created_at = Column(DateTime, default=datetime.utcnow())
