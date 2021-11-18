@@ -8,3 +8,6 @@ alembic upgrade head
 
 # Create initial data in DB
 python /app/app/initial_data.py
+
+# Autopopulate books of the bible
+python /app/app/autopopulate_books.py
