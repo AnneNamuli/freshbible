@@ -2,7 +2,7 @@ from sqlalchemy import Boolean, Column, Integer, String, Text, LargeBinary
 from sqlalchemy.sql.schema import ForeignKey
 from sqlalchemy.sql.sqltypes import Date, DateTime
 from datetime import datetime
-from db.base_class import Base
+from backend.db.base_class import Base
 
 
 class User(Base):
