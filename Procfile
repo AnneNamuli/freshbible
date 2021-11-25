@@ -1,2 +1,2 @@
-release: backend.alembic upgrade head
+release: 'backend.alembic' upgrade head
 web: uvicorn "backend.main:app" --host=0.0.0.0 --port=${PORT:-5000} --workers=2
