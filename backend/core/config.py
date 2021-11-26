@@ -24,7 +24,7 @@ class Settings(BaseSettings):
             return v
         raise ValueError(v)
 
-    PROJECT_NAME: str
+    PROJECT_NAME: str = 'freshword'
     SENTRY_DSN: Optional[HttpUrl] = None
 
     @validator("SENTRY_DSN", pre=True)
@@ -33,10 +33,10 @@ class Settings(BaseSettings):
             return None
         return v
 
-    POSTGRES_SERVER: str
-    POSTGRES_USER: str
-    POSTGRES_PASSWORD: str
-    POSTGRES_DB: str
+    POSTGRES_SERVER: str = 'ec2-50-16-241-192.compute-1.amazonaws.com'
+    POSTGRES_USER: str = 'ajwxdwkkfxevyz'
+    POSTGRES_PASSWORD: str = 'bb8cce02280090a8f1ad70d0f84447be1624eed4d109a5b3d78461deb3b12f62'
+    POSTGRES_DB: str = 'dd3l6uitsvdd3t'
     SQLALCHEMY_DATABASE_URI: Optional[PostgresDsn] = None
 
     @validator("SQLALCHEMY_DATABASE_URI", pre=True)
@@ -52,11 +52,11 @@ class Settings(BaseSettings):
         )
 
     SMTP_TLS: bool = True
-    SMTP_PORT: Optional[int] = None
+    SMTP_PORT: Optional[int] = 587
     SMTP_HOST: Optional[str] = None
     SMTP_USER: Optional[str] = None
     SMTP_PASSWORD: Optional[str] = None
-    EMAILS_FROM_EMAIL: Optional[EmailStr] = None
+    EMAILS_FROM_EMAIL: Optional[EmailStr] = 'info@freshword.com'
     EMAILS_FROM_NAME: Optional[str] = None
 
     @validator("EMAILS_FROM_NAME")
@@ -78,12 +78,12 @@ class Settings(BaseSettings):
         )
 
     EMAIL_TEST_USER: EmailStr = "test@example.com"  # type: ignore
-    FIRST_SUPERUSER: EmailStr
-    FIRST_SUPERUSER_PASSWORD: str
+    FIRST_SUPERUSER: EmailStr = 'admin@freshword.com'
+    FIRST_SUPERUSER_PASSWORD: str = '366d216429ed6345280804950d2d629956348a506ec9e4ea8ee0333b1c2fd254'
     USERS_OPEN_REGISTRATION: bool = False
-    FIRST_NAME: str
-    LAST_NAME: str
-    PHONE_NUMBER: str
+    FIRST_NAME: str = 'Admin'
+    LAST_NAME: str = 'User'
+    PHONE_NUMBER: str = '250000000000'
 
     class Config:
         case_sensitive = True

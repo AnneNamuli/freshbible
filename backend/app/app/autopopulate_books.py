@@ -1,5 +1,4 @@
 from docx import Document
-import re
 
 doc = Document("Fresh Word (Full Version).docx")
 paragraphs = (doc.paragraphs)
