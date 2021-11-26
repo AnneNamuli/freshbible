@@ -1,5 +1,5 @@
-from models.db_models import Bible_Chapter, Bible_Verse
-from db.session import SessionLocal
+from backend.models.db_models import Bible_Chapter, Bible_Verse
+from backend.db.session import SessionLocal
 import logging
 
 
