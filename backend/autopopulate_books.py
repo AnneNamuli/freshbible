@@ -6,7 +6,9 @@ import os
 
 from docx import Document
 
-doc = Document("FreshWord.docx")
+path = os.path.abspath("FreshWord.docx")
+
+doc = Document(path)
 paragraphs = (doc.paragraphs)
 
 
