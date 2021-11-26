@@ -27,11 +27,11 @@ class Settings(BaseSettings):
     PROJECT_NAME: str = 'freshword'
     # SENTRY_DSN: Optional[HttpUrl] = None
 
-    @validator("SENTRY_DSN", pre=True)
-    def sentry_dsn_can_be_blank(cls, v: str) -> Optional[str]:
-        if len(v) == 0:
-            return None
-        return v
+    # @validator("SENTRY_DSN", pre=True)
+    # def sentry_dsn_can_be_blank(cls, v: str) -> Optional[str]:
+    #     if len(v) == 0:
+    #         return None
+    #     return v
 
     POSTGRES_SERVER: str = 'ec2-50-16-241-192.compute-1.amazonaws.com'
     POSTGRES_USER: str = 'ajwxdwkkfxevyz'
