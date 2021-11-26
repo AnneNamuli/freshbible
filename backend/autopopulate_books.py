@@ -6,8 +6,7 @@ import os
 
 from docx import Document
 
-dox = os.path.abspath('FreshWord.docx')
-doc = Document(dox)
+doc = Document("FresWord.docx")
 paragraphs = (doc.paragraphs)
 
 books = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy', 'Joshua', 'Judges', 'Ruth', '1 Samuel', '2 Samuel', '1 Kings', '2 Kings', 'Ezekiel', '1 Chronicles', '2 Chronicles', 'Ezra', 'Nehemiah', 'Esther', 'Job', 'Psalms', 'Proverbs', 'Ecclesiastes', 'Song of Solomon', 'Isaiah', 'Jeremiah', 'Lamentations', 'Daniel', 'Hosea', 'Joel', 'Amos', 'Obadiah', 'Jonah', 'Micah',
