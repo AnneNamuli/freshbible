@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from api.endpoints import login, users, utils, bible,\
+from backend.api.endpoints import login, users, utils, bible,\
     bible_chapter, bible_verse, organization, organization_user
 
 api_router = APIRouter()
