@@ -1,9 +1,8 @@
 from sqlalchemy.orm import Session
 
-import crud
-import schemas
-from core.config import settings
-from db import base  # noqa: F401
+from backend import crud, schemas
+from backend.core.config import settings
+from backend.db import base  # noqa: F401
 
 # make sure all SQL Alchemy models are imported (app.db.base) before initializing DB
 # otherwise, SQL Alchemy might fail to initialize relationships properly
