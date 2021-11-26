@@ -14,7 +14,7 @@ def create_bible_verse(
     *,
     db: Session = Depends(deps.get_db),
     verse_in: schemas.BibleVerseCreate,
-    current_user: models.User = Depends(deps.get_current_active_superuser),
+    current_user: models.User = Depends(deps.get_current_active_user),
 ) -> Any:
     """
     Create new verse of the bible.

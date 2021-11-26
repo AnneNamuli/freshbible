@@ -15,7 +15,7 @@ def read_organizations(
     db: Session = Depends(deps.get_db),
     skip: int = 0,
     limit: int = 100,
-    current_user: models.User = Depends(deps.get_current_active_superuser),
+    current_user: models.User = Depends(deps.get_current_active_user),
 ) -> Any:
     """
     Retrieve all organizations.
@@ -42,7 +42,7 @@ def create_organization(
     *,
     db: Session = Depends(deps.get_db),
     org_in: schemas.OrganizationCreate,
-    current_user: models.User = Depends(deps.get_current_active_superuser),
+    current_user: models.User = Depends(deps.get_current_active_user),
 ) -> Any:
     """
     Create new organization.
@@ -63,7 +63,7 @@ def update_organization(
     db: Session = Depends(deps.get_db),
     id: int,
     org_in: schemas.OrganizationUpdate,
-    current_user: models.User = Depends(deps.get_current_active_superuser),
+    current_user: models.User = Depends(deps.get_current_active_user),
 ) -> Any:
     """
     Update an organization.

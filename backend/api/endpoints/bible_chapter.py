@@ -14,7 +14,7 @@ def create_bible_chapter(
     *,
     db: Session = Depends(deps.get_db),
     book_in: schemas.BibleChapterCreate,
-    current_user: models.User = Depends(deps.get_current_active_superuser),
+    current_user: models.User = Depends(deps.get_current_active_user),
 ) -> Any:
     """
     Create new chapter of the bible.
@@ -41,7 +41,7 @@ def read_bible_chapters(
     db: Session = Depends(deps.get_db),
     skip: int = 0,
     limit: int = 100,
-    current_user: models.User = Depends(deps.get_current_active_superuser),
+    current_user: models.User = Depends(deps.get_current_active_user),
 ) -> Any:
     """
     Retrieve chapters of the bible.
