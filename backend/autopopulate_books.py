@@ -8,7 +8,7 @@ from docx import Document
 
 path = os.path.abspath("FreshWord.docx")
 
-doc = Document(path)
+doc = Document('FreshWord.docx')
 paragraphs = (doc.paragraphs)
 
 
