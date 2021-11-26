@@ -1,11 +1,13 @@
 from backend.models.db_models import Bible_Chapter, Bible_Verse
 from backend.db.session import SessionLocal
 import logging
+import os
 
 
 from docx import Document
 
-doc = Document("Fresh Word (Full Version).docx")
+dox = os.path.abspath('FreshWord.docx')
+doc = Document(dox)
 paragraphs = (doc.paragraphs)
 
 books = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy', 'Joshua', 'Judges', 'Ruth', '1 Samuel', '2 Samuel', '1 Kings', '2 Kings', 'Ezekiel', '1 Chronicles', '2 Chronicles', 'Ezra', 'Nehemiah', 'Esther', 'Job', 'Psalms', 'Proverbs', 'Ecclesiastes', 'Song of Solomon', 'Isaiah', 'Jeremiah', 'Lamentations', 'Daniel', 'Hosea', 'Joel', 'Amos', 'Obadiah', 'Jonah', 'Micah',
