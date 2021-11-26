@@ -390,3 +390,4 @@ yarg==0.1.9
 passlib
 emails
 python-multipart
+python-docx
