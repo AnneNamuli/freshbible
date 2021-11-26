@@ -389,3 +389,4 @@ wtforms==3.0.0; python_version >= "3.6"
 yarg==0.1.9
 passlib
 emails
+python-multipart
