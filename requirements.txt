@@ -387,3 +387,4 @@ websockets==10.0; python_version >= "3.7"
 werkzeug==2.0.2; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.6"
 wtforms==3.0.0; python_version >= "3.6"
 yarg==0.1.9
+passlib
