@@ -2,9 +2,9 @@ from sqlalchemy.orm import Session
 from fastapi.encoders import jsonable_encoder
 from typing import List
 
-from crud.base import CRUDBase
-from models.db_models import Bible_Chapter
-from schemas.bible_chapter import BibleChapterCreate, BibleChapterUpdate
+from backend.crud.base import CRUDBase
+from backend.models.db_models import Bible_Chapter
+from backend.schemas.bible_chapter import BibleChapterCreate, BibleChapterUpdate
 
 
 class CRUDUser(CRUDBase[Bible_Chapter, BibleChapterCreate, BibleChapterUpdate]):

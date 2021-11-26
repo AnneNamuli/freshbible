@@ -4,9 +4,9 @@ from sqlalchemy.orm import Session
 from fastapi.encoders import jsonable_encoder
 from typing import List
 
-from crud.base import CRUDBase
-from models.db_models import Bible_Book
-from schemas.bible_books import BibleBookCreate, BibleBookUpdate
+from backend.crud.base import CRUDBase
+from backend.models.db_models import Bible_Book
+from backend.schemas.bible_books import BibleBookCreate, BibleBookUpdate
 
 
 class CRUDUser(CRUDBase[Bible_Book, BibleBookCreate, BibleBookUpdate]):

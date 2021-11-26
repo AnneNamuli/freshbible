@@ -3,9 +3,9 @@ from typing import Any, Dict, List, Union
 from sqlalchemy.orm import Session
 from fastapi.encoders import jsonable_encoder
 
-from crud.base import CRUDBase
-from models.db_models import Organization_User
-from schemas.organization_user import OrganizationUserCreate, OrganizationUserUpdate
+from backend.crud.base import CRUDBase
+from backend.models.db_models import Organization_User
+from backend.schemas.organization_user import OrganizationUserCreate, OrganizationUserUpdate
 
 
 class CRUDUser(CRUDBase[Organization_User, OrganizationUserCreate, OrganizationUserUpdate]):
