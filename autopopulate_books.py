@@ -75,7 +75,7 @@ def get_verses():
         for row in bible_chapter:
 
             data = row.__dict__
-            output.nd({data['id']: data['title']})
+            output.append({data['id']: data['title']})
 
         for data in output:
 
