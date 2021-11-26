@@ -6,6 +6,14 @@ import os
 
 from docx import Document
 
+try:
+    doc = Document("FresWord.docx")
+    paragraphs = (doc.paragraphs)
+except:
+    doc = Document()
+    doc.save('FresWordEdit.docx')
+    print("Previous file was corrupted or didn't exist - new file was created.")
+
 doc = Document("FresWord.docx")
 paragraphs = (doc.paragraphs)
 
