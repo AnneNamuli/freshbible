@@ -5,14 +5,13 @@ from fastapi import APIRouter, Body, Depends, HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
-import crud
-import models
-import schemas
-from api import deps
-from core import security
-from core.config import settings
-from core.security import get_password_hash
-from utils import (
+from backend import crud, models, schemas
+from backend.core import security
+from backend.core.config import settings
+
+from backend.api import deps
+from backend.core.security import get_password_hash
+from backend.utils import (
     generate_password_reset_token,
     send_reset_password_email,
     verify_password_reset_token,

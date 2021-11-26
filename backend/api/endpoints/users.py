@@ -6,12 +6,11 @@ from pydantic.networks import EmailStr
 from sqlalchemy.orm import Session
 from datetime import date
 
-import crud
-import models
-import schemas
-from api import deps
-from core.config import settings
-from utils import send_new_account_email
+from backend import crud, models, schemas
+from backend.core.config import settings
+
+from backend.api import deps
+from backend.utils import send_new_account_email
 
 router = APIRouter()
 
