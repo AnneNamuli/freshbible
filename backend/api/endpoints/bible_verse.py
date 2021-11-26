@@ -41,7 +41,7 @@ def read_bible_verses(
     db: Session = Depends(deps.get_db),
     skip: int = 0,
     limit: int = 100,
-    current_user: models.User = Depends(deps.get_current_active_superuser),
+    current_user: models.User = Depends(deps.get_current_active_user),
 ) -> Any:
     """
     Retrieve all verses of the bible.
@@ -56,7 +56,7 @@ def read_bible_verses_by_chapter(
     skip: int = 0,
     limit: int = 100,
     db: Session = Depends(deps.get_db),
-    current_user: models.User = Depends(deps.get_current_active_superuser),
+    current_user: models.User = Depends(deps.get_current_active_user),
 ) -> Any:
     """
     Search specific chapter of the bible
@@ -72,7 +72,7 @@ def read_bible_verse_range(
     start: int,
     end: int,
     db: Session = Depends(deps.get_db),
-    current_user: models.User = Depends(deps.get_current_active_superuser),
+    current_user: models.User = Depends(deps.get_current_active_user),
 ) -> Any:
     """
     Search verse range from the bible
@@ -87,7 +87,7 @@ def read_bible_verse(
     chapter: str,
     verse_number: int,
     db: Session = Depends(deps.get_db),
-    current_user: models.User = Depends(deps.get_current_active_superuser),
+    current_user: models.User = Depends(deps.get_current_active_user),
 ) -> Any:
     """
     Search specific verse bible
