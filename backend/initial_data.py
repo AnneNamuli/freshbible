@@ -2,7 +2,7 @@ import logging
 
 from backend.db.init_db import init_db
 from backend.db.session import SessionLocal
-from backend.autopopulate_books import get_verses
+from autopopulate_books import get_verses
 
 
 logging.basicConfig(level=logging.INFO)
