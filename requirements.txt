@@ -391,3 +391,4 @@ passlib
 emails
 python-multipart
 python-docx
+tenacity
