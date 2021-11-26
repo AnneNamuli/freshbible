@@ -388,3 +388,4 @@ werkzeug==2.0.2; python_version >= "3.6" and python_full_version < "3.0.0" or py
 wtforms==3.0.0; python_version >= "3.6"
 yarg==0.1.9
 passlib
+emails
