@@ -31,5 +31,8 @@ class CRUDUser(CRUDBase[Bible_Book, BibleBookCreate, BibleBookUpdate]):
             .all()
         )
 
+    def get_by_id(self, db: Session, *, id: str) -> Optional[Bible_Book]:
+        return db.query(Bible_Book).filter(Bible_Book.id == id).first()
+
 
 bible_book = CRUDUser(Bible_Book)

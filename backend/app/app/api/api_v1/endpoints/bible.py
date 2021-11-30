@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 
 from app import crud, models, schemas
 from app.api import deps
+from backend.app.app.crud import bible
 
 router = APIRouter()
 
@@ -53,4 +54,25 @@ def create_bible_book(
             detail="The bible book with this title already exists in the system.",
         )
     book = crud.bible_book.create(db, obj_in=book_in)
+    return book
+
+
+@router.patch("/{id}", response_model=schemas.BibleBook)
+def update_bible_book(
+    *,
+    db: Session = Depends(deps.get_db),
+    id: int,
+    book_in: schemas.BibleBookUpdate,
+    current_user: models.User = Depends(deps.get_current_active_superuser),
+) -> Any:
+    """
+    Update a bible book.
+    """
+    bible = crud.bible_book.get_by_id(db, id=id)
+    if not bible:
+        raise HTTPException(
+            status_code=404,
+            detail="The bible book with this id does not exist in the system",
+        )
+    book = crud.bible_book.update(db, db_obj=bible, obj_in=book_in)
     return book

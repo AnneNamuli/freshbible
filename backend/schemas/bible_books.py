@@ -20,7 +20,7 @@ class BibleBookCreate(BibleBookBase):
 
 # Properties to receive via API on update
 class BibleBookUpdate(BibleBookBase):
-    pass
+    chapter_count: int
 
 
 class BibleBookInDBBase(BibleBookBase):
