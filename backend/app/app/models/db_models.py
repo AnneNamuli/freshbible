@@ -25,6 +25,7 @@ class Bible_Book(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, unique=True)
     slug = Column(String, unique=True)
+    chapter_count = Column(String)
     created_at = Column(DateTime, default=datetime.utcnow())
 
 

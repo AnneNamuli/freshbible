@@ -54,3 +54,24 @@ def create_bible_book(
         )
     book = crud.bible_book.create(db, obj_in=book_in)
     return book
+
+
+@router.patch("/{id}", response_model=schemas.BibleBook)
+def update_bible_book(
+    id: int,
+    *,
+    db: Session = Depends(deps.get_db),
+    book_in: schemas.BibleBookUpdate,
+    current_user: models.User = Depends(deps.get_current_active_user),
+) -> Any:
+    """
+    Update book of the bible.
+    """
+    book = crud.bible_book.get(db, id=id)
+    if book:
+        raise HTTPException(
+            status_code=400,
+            detail="The bible book with this title already exists in the system.",
+        )
+    book = crud.bible_book.update(db, db_obj=book, obj_in=book_in)
+    return book
