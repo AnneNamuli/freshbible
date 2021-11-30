@@ -19,7 +19,7 @@ def create_bible_chapter(
     """
     Create new chapter of the bible.
     """
-    book = crud.bible_chapter.create(db, obj_in=book_in)
+    book = crud.chapter.create(db, obj_in=book_in)
     return book
 
 
@@ -32,7 +32,7 @@ def read_chapter_by_id(
     """
     Read chapter by id(primary key).
     """
-    chapter = crud.bible_chapter.get(db, id=id)
+    chapter = crud.chapter.get(db, id=id)
     return chapter
 
 
@@ -59,5 +59,5 @@ def read_chapters_by_book_id(
     """
     Read chapter by id.
     """
-    chapter = crud.bible_chapter.get_chapters_by_book_id(db, book_id=book_id)
+    chapter = crud.chapter.get_chapters_by_book_id(db, book_id=book_id)
     return chapter
