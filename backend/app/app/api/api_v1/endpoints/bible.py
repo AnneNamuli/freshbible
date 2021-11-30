@@ -74,5 +74,5 @@ def update_bible_book(
             status_code=404,
             detail="The bible book with this id does not exist in the system",
         )
-    book = crud.bible_book.update(db, db_obj=bible, obj_in=book_in)
+    book = crud.bible_book.update_book(db, db_obj=bible, obj_in=book_in)
     return book
