@@ -4,5 +4,5 @@ from sqlalchemy.orm import sessionmaker
 from backend.core.config import settings
 
 engine = create_engine(
-    'postgresql://ajwxdwkkfxevyz:bb8cce02280090a8f1ad70d0f84447be1624eed4d109a5b3d78461deb3b12f62@ec2-50-16-241-192.compute-1.amazonaws.com:5432/dd3l6uitsvdd3t', pool_pre_ping=True)
+    'postgresql://tnniqygzwuxlsc:f0677519ca90972524ed8695a26bbcec41e4e878d31111e4ace76240a90c0af5@ec2-3-209-38-221.compute-1.amazonaws.com:5432/d23pv8los6u5ft', pool_pre_ping=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
