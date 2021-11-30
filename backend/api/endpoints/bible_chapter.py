@@ -30,7 +30,7 @@ def read_chapter_by_id(
     db: Session = Depends(deps.get_db),
 ) -> Any:
     """
-    Read chapter by id.
+    Read chapter by id(primary key).
     """
     chapter = crud.bible_chapter.get(db, id=id)
     return chapter
@@ -47,4 +47,17 @@ def read_bible_chapters(
     Retrieve chapters of the bible.
     """
     chapter = crud.chapter.get_multi(db, skip=skip, limit=limit)
+    return chapter
+
+
+@router.get("/{book_id}/chapters", response_model=List[schemas.BibleChapter])
+def read_chapters_by_book_id(
+    book_id: int,
+    current_user: models.User = Depends(deps.get_current_active_user),
+    db: Session = Depends(deps.get_db),
+) -> Any:
+    """
+    Read chapter by id.
+    """
+    chapter = crud.bible_chapter.get_chapters_by_book_id(db, book_id=book_id)
     return chapter

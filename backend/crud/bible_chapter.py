@@ -27,11 +27,16 @@ class CRUDUser(CRUDBase[Bible_Chapter, BibleChapterCreate, BibleChapterUpdate]):
             .all()
         )
 
-    def get_count_chapters(
-        self, db: Session, *, skip: int = 0, limit: int = 100
-                           ) -> List[Bible_Chapter]:
+    def get_chapters_by_book_id(
+            self, db: Session, *, book_id) -> List[Bible_Chapter]:
         return (
-            db.query(self.model).count()
+            db.query(self.model).filter(book_id=book_id).all()
+        )
+
+    def get(
+            self, db: Session, *, id) -> Bible_Chapter:
+        return (
+            db.query(self.model).filter(id=id).first()
         )
 
 
