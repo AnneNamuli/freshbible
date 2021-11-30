@@ -8,12 +8,14 @@ from pydantic import BaseModel, constr
 class BibleBookBase(BaseModel):
     title: Optional[str] = None
     slug: Optional[constr(max_length=3)] = None
+    chapter_count: Optional[int] = None
 
 
 # Properties to receive via API on creation
 class BibleBookCreate(BibleBookBase):
     title: str
     slug: str
+    chapter_count: int
 
 
 # Properties to receive via API on update

@@ -27,5 +27,12 @@ class CRUDUser(CRUDBase[Bible_Chapter, BibleChapterCreate, BibleChapterUpdate]):
             .all()
         )
 
+    def get_count_chapters(
+        self, db: Session, *, skip: int = 0, limit: int = 100
+                           ) -> List[Bible_Chapter]:
+        return (
+            db.query(self.model).count()
+        )
+
 
 chapter = CRUDUser(Bible_Chapter)
