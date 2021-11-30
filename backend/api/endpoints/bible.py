@@ -68,10 +68,10 @@ def update_bible_book(
     Update book of the bible.
     """
     book = crud.bible_book.get(db, id=id)
-    if book:
+    if not book:
         raise HTTPException(
             status_code=400,
-            detail="The bible book with this title already exists in the system.",
+            detail="The bible book with this id does not exists in the system.",
         )
     book = crud.bible_book.update(db, db_obj=book, obj_in=book_in)
     return book
