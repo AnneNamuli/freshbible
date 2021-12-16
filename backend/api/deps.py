@@ -5,9 +5,7 @@ from fastapi.security import OAuth2PasswordBearer
 from jose import jwt
 from pydantic import ValidationError
 from sqlalchemy.orm import Session
-import crud
-import models
-import schemas
+from backend import crud, models, schemas
 from backend.core import security
 from backend.core.config import settings
 from backend.db.session import SessionLocal
