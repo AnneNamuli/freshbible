@@ -1,8 +1,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-#from backend.core.config import settings
 
 engine = create_engine(
-    'postgresql://sxjzpybxpehuuy:218e99589d70810d3c3063781cf2763fae04c1b8e15535e277e4229a7a448964@ec2-34-204-127-36.compute-1.amazonaws.com:5432/d4pq8cteal1me7', pool_pre_ping=True)
+    'postgresql://kchjyvdochyvpm:7ee4d5c0c2c38c8d81736130750edf32f335e47e3f8c467ffe982f093a45f738@ec2-107-23-213-65.compute-1.amazonaws.com:5432/d4019b51ju20a2'
+)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
