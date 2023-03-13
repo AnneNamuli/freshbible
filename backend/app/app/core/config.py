@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     # 60 minutes * 24 hours * 8 days = 8 days
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 8
     SERVER_NAME: str
-    SERVER_HOST: AnyHttpUrl
+    SERVER_HOST: AnyHttpUrl = 'https://fresh-word.herokuapp.com/'
     # BACKEND_CORS_ORIGINS is a JSON-formatted list of origins
     # e.g: '["http://localhost", "http://localhost:4200", "http://localhost:3000", \
     # "http://localhost:8080", "http://local.dockertoolbox.tiangolo.com"]'
@@ -67,7 +67,7 @@ class Settings(BaseSettings):
 
     EMAIL_RESET_TOKEN_EXPIRE_HOURS: int = 48
     EMAIL_TEMPLATES_DIR: str = "/app/app/email-templates/build"
-    EMAILS_ENABLED: bool = False
+    EMAILS_ENABLED: bool = True
 
     @validator("EMAILS_ENABLED", pre=True)
     def get_emails_enabled(cls, v: bool, values: Dict[str, Any]) -> bool:

@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.api.api_v1.endpoints import login, users, utils, bible,\
+from app.api.api_v1.endpoints import login, users, bible,\
     bible_chapter, bible_verse, organization, organization_user
 
 api_router = APIRouter()
@@ -15,5 +15,3 @@ api_router.include_router(bible_chapter.router,
                           prefix="/bible-chapter", tags=["bible-chapter"])
 api_router.include_router(
     bible_verse.router, prefix="/bible-verse", tags=["bible-verse"])
-
-api_router.include_router(utils.router, prefix="/utils", tags=["utils"])

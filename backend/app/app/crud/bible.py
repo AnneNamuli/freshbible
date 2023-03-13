@@ -31,5 +31,17 @@ class CRUDUser(CRUDBase[Bible_Book, BibleBookCreate, BibleBookUpdate]):
             .all()
         )
 
+    def get_by_id(self, db: Session, *, id: str) -> Optional[Bible_Book]:
+        return db.query(Bible_Book).filter(Bible_Book.id == id).first()
+
+    def update_book(
+        self, db: Session, *, db_obj: Bible_Book, obj_in: Union[BibleBookUpdate, Dict[str, Any]]
+    ) -> Bible_Book:
+        if isinstance(obj_in, dict):
+            update_data = obj_in
+        else:
+            update_data = obj_in.dict(exclude_unset=True)
+        return super().update(db, db_obj=db_obj, obj_in=update_data)
+
 
 bible_book = CRUDUser(Bible_Book)
